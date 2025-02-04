@@ -12,11 +12,11 @@ data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/hea
 
 library(ggimg)
 p <- ggplot(data, mapping=aes(img=image2)) +
-  geom_rect_img(mapping=aes(xmin=0-position/6,
-                            xmax=0+position/6,
+  geom_rect_img(mapping=aes(xmin=0-position/5,
+                            xmax=0+position/5,
                             ymin=0,
                             ymax=200)) +
-  geom_text(mapping=aes(label=paste0("$",`Land Value (Dollars)`)),y=75,x=0,size=8) +
+  geom_text(mapping=aes(label=paste0("$",`Land Value (Dollars)`)),y=75,x=0,size=3,family="dubois") +
   scale_y_continuous(limits=c(0,200)) +
   scale_x_continuous(limits=c(-100,100)) +
   theme_void() +
@@ -31,10 +31,12 @@ p <- ggplot(data, mapping=aes(img=image2)) +
         legend.justification = "top",
         legend.text = element_text(size = 0),
         legend.key.size = unit(0, "cm"),
-        plot.title = element_text(size = 25, hjust=.5),
+        plot.title = element_text(size = 15, hjust=.5),
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(0.2, .3, 0.1, .3, "cm"),
         plot.caption = element_text(size = 10), 
         plot.caption.position = "plot",
-        strip.text = element_text(size = 20, hjust = 0.5)) +
+        strip.text = element_text(size = 15, hjust = 0.5)) +
   facet_wrap(~Year,ncol=1,scales="free",strip.position="bottom")
+
+ggsave(plot=p,filename="2025/challenge01.pdf",width=5.5,height=8,units="in",dpi=600,bg="#E6D4C3")

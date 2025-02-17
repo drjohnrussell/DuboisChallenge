@@ -15,6 +15,13 @@ map <- read_sf("2025/georgia-1880-county-shapefile") |>
             by=c("NHGISNAM"="County1890")) |> 
   arrange(NHGISNAM)
 
+cities <- data.frame(city=c("Atlanta", "Columbus", "Macon", "Augusta", "Savannah"),
+                     lat=c(33.7501275, 32.4609764, 32.8406946, 33.4687314, 32.0808989),
+                     lon=c(-84.3885209, -84.9877094, -83.6324022, -82.0283188, -81.091203),
+                     hjust=c(1,0,1,1,1),
+                     lonadjust=c(-.02,.02,-.02,-.02,-.02),
+                     latadjust=c(-0.02,0,0,-0.02,0))
+
 ## First map to figure out colors
 
 map |> 
@@ -37,6 +44,9 @@ p <- map |>
   ggplot() +
   geom_sf(mapping=aes(geometry=geometry,fill=color),show.legend=FALSE) +
   geom_sf_text(mapping=aes(label=`Acres 1899`),size=7,family="dubois") +
+  geom_point(data=cities,aes(x=lon,y=lat),color="black",size=4,shape=21, fill=NA,alpha=.6) +
+  geom_point(data=cities,aes(x=lon,y=lat),color="black",size=3,alpha=.6) +
+  geom_text(data=cities,aes(x=lon+lonadjust,y=lat+latadjust,label=city,hjust=hjust),size=3,family="dubois") +
   coord_sf(crs=sf::st_crs(4326)) +
   scale_fill_manual(values=c(brown,crimson,gold,green,lightblue,pink,tan)) +
   annotate("text",x=-81.5,y=34.5,
@@ -57,6 +67,8 @@ p <- map |>
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(0.2, 1, 0.1, 1, "cm")) +
   labs(title=str_to_upper("land owned by negroes in georgia, u.s.a  1870-1900."))
+
+p
 
 ggsave(plot=p,filename="2025/challenge03.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
 

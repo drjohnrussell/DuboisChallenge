@@ -69,23 +69,23 @@ p <- ggplot() +
   # year text
   geom_text(data = year_labels, 
             mapping = aes(x = x, y = y, label = label, colour = I(colour)),
-            family = "dubois") +
+            family = "dubois",size=10) +
   # valuation text
-  annotate("text", x=0,y=0, label="$5,393,885",colour="white",family="dubois",size=2) +
-  annotate("text",x=-4.1,y=-3.4,label="$5,764,293",colour="black",family="dubois",angle=30,size=2) +
-  annotate("text",x=5,y=-5.4,label="$8,153,390",colour="white",family="dubois",angle=-47,size=2) +
-  annotate("text",x=10,y=0,label="$12,322,003",colour="black",family="dubois",angle=0,size=2) +
-  annotate("text",x=8,y=10,label="$12,941,230",colour="black",family="dubois",angle=52,size=2) +
-  annotate("text",x=-8,y=10,label="$13,447,423",colour="black",family="dubois",angle=-55,size=2) +
+  annotate("text", x=0,y=0, label="$5,393,885",colour="white",family="dubois",size=8.5) +
+  annotate("text",x=-4.1,y=-3.3,label="$5,764,293",colour="black",family="dubois",angle=30,size=8.5) +
+  annotate("text",x=5,y=-5.4,label="$8,153,390",colour="white",family="dubois",angle=-47,size=8.5) +
+  annotate("text",x=10,y=0,label="$12,322,003",colour="black",family="dubois",angle=0,size=8.5) +
+  annotate("text",x=8,y=10,label="$12,941,230",colour="black",family="dubois",angle=52,size=8.5) +
+  annotate("text",x=-8,y=10,label="$13,447,423",colour="black",family="dubois",angle=-55,size=8.5) +
   labs(title = "ASSESSED VALUATION OF ALL TAXABLE PROPERTY\nOWNED BY GEORGIA NEGROES. ") +
-  theme(plot.background = element_rect(fill = "#dac8b8", colour="#dac8b8"),
-        panel.background = element_rect(fill = "#dac8b8", colour="#dac8b8"), 
+  theme(plot.background = element_rect(fill = "#E6D4C3", colour="#E6D4C3"),
+        panel.background = element_rect(fill = "#E6D4C3", colour="#E6D4C3"), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(), 
         legend.position = "none",
         plot.title = element_text(family = "space", face = "bold", 
-                                  hjust = 0.5, size = 24, 
-                                  lineheight = 0.3, 
+                                  hjust = 0.5, size = 48, 
+                                  lineheight = 1, 
                                   margin = margin(b = 30)),
         axis.title = element_blank(),
         axis.text = element_blank(),
@@ -93,4 +93,4 @@ p <- ggplot() +
         plot.margin = unit(c(0.1, 0.8, 1.3, 0.8), "cm")) 
 p
 
-ggsave(p, filename = "2025/challenge_05.pdf", width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(p, filename = "2025/challenge05.pdf", width=22,height=28,units="in",dpi=600,bg="#E6D4C3")

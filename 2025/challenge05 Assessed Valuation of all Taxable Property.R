@@ -83,7 +83,7 @@ p <- ggplot() +
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(), 
         legend.position = "none",
-        plot.title = element_text(family = "space", face = "bold", 
+        plot.title = element_text(family = "dubois", face = "bold", 
                                   hjust = 0.5, size = 48, 
                                   lineheight = 1, 
                                   margin = margin(b = 30)),

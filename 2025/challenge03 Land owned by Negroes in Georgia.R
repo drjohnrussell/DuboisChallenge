@@ -4,12 +4,13 @@ library(sf)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
 #data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge03/data.csv") |> 
 #  mutate(County1890=str_to_title(County1890))
 # write_csv(data, "2025/challenge03.csv") # Save for later adding of colors
-data <- read_csv("2025/challenge03.csv")
-map <- read_sf("2025/georgia-1880-county-shapefile") |> 
+data <- read_csv("2025/data/challenge03.csv")
+map <- read_sf("2025/data/georgia-1880-county-shapefile") |> 
   mutate(NHGISNAM=str_to_title(NHGISNAM)) |> 
   left_join(data,
             by=c("NHGISNAM"="County1890")) |> 
@@ -70,7 +71,7 @@ p <- map |>
 
 p
 
-ggsave(plot=p,filename="2025/challenge03.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
-
+ggsave(plot=p,filename="2025/final/challenge03.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge03.png",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
 
 

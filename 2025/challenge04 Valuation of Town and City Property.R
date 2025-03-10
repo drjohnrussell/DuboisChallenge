@@ -4,8 +4,9 @@ options(scipen = 999)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
-data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge04/data.csv")
+data <- read_csv("2025/data/challenge04.csv")
 
 data_spline <- as.data.frame(spline(data$Year, data$`Property Valuation`,n=200)) |> 
   rename(Year=x,`Property Valuation`=y)
@@ -68,6 +69,6 @@ p <- data_spline |>
         panel.background = element_rect(fill = "#E6D4C3"),
         plot.margin = margin(1, 1.5, 1, 1.5, "in"))
 
-ggsave(plot=p,filename="2025/challenge04.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
-
+ggsave(plot=p,filename="2025/final/challenge04.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge04.png",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
         

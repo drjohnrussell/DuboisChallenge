@@ -3,13 +3,14 @@ library(ggforce)
 library(showtext)
 
 # load data
-data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge05/data.csv") |>
+data <- read_csv("2025/data/challenge05.csv") |>
   distinct() |> 
   mutate(label = paste0("$", format(`Valuation (Dollars)`,big.mark=",", trim=TRUE)))
 
 # load fonts
 font_add_google(name = "Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
 # prep data
 circles <- tibble(x = rep(0, 6), 
@@ -93,4 +94,5 @@ p <- ggplot() +
         plot.margin = unit(c(0.1, 0.8, 1.3, 0.8), "cm")) 
 p
 
-ggsave(p, filename = "2025/challenge05.pdf", width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(p, filename = "2025/final/challenge05.pdf", width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(p, filename= "2025/final/challenge05.png", width=22, height=28, units="in",dpi=600,bg="#E6D4C3")

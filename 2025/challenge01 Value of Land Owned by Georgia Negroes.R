@@ -4,8 +4,9 @@ library(ggimage)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
-data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge01/data.csv") |> 
+data <- read_csv("2025/data/challenge01.csv") |> 
   mutate(image2="2025/images/rawpixel.jpg",
          position=`Land Value (Dollars)`^(1/3))
 
@@ -38,4 +39,5 @@ p <- ggplot(data, mapping=aes(img=image2)) +
         strip.text = element_text(size = 15, hjust = 0.5)) +
   facet_wrap(~Year,ncol=1,scales="free",strip.position="bottom")
 
-ggsave(plot=p,filename="2025/challenge01.pdf",width=5.5,height=8,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge01.pdf",width=5.5,height=8,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge01.png",width=5.5,height=8,units="in",dpi=600,bg="#E6D4C3")

@@ -3,8 +3,9 @@ library(showtext)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
-data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge02/data.csv") |> 
+data <- read_csv("2025/data/challenge02.csv") |> 
   mutate(Date=as.factor(Date),
          color=case_when(Date %in% c("1874","1899") ~ "black",
                          .default="transparent"))
@@ -35,4 +36,5 @@ p <- ggplot(data,mapping=aes(x=fct_rev(Date))) +
         strip.text = element_text(size = 30, hjust = 0.5)) +
   labs(title=str_to_upper("acres of land owned by negroes \n in georgia."))
 
-ggsave(plot=p,filename="2025/challenge02.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge02.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge02.png",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")

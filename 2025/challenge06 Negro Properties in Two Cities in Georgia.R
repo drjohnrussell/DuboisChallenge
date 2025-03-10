@@ -5,8 +5,9 @@ library(ggbrace)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 300)
 
-data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge06/data.csv") |> 
+data <- read_csv("2025/data/challenge06.csv") |> 
   mutate(Year=case_when(Year==1898 ~ 1899,
          .default=Year))
 
@@ -99,5 +100,5 @@ p <- data2 |>
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(1, 1, 0.1, 1, "cm"))
 
-ggsave(plot=p,filename="2025/challenge06.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
-
+ggsave(plot=p,filename="2025/final/challenge06.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge06.png",width=11, height=14, units="in",dpi=600,bg="#E6D4C3")

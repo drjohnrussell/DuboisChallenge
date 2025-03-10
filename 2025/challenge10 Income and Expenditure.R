@@ -106,13 +106,14 @@ legendtable <- table |>
               column_labels.vlines.style = "solid",
               column_labels.border.bottom.color="black") |> 
   opt_table_outline(style = "solid", width = px(1), color = "black") |> 
-  cols_width(everything() ~ px(190))
+  cols_width(everything() ~ px(185))
 
 legendtable |> 
-  gtsave("2025/images/legendtable.png", expand = 0, vwidth = 1300, vheight = 400)
+  gtsave("2025/images/legendtable.png", vwidth = 2000, vheight = 1000)
 
+### Trimming the image
+legendtable <- image_ggplot(image_trim(image_read("2025/images/legendtable.PNG")))
 shield <- image_ggplot(image_read("2025/images/income.PNG"))
-legendtable <- image_ggplot(image_read("2025/images/legendtable.png"))
 library(patchwork)
 
 ## rest of the plot
@@ -157,19 +158,19 @@ p <- graph |>
                aes(x=x,xend=xend,y=y,yend=yend),color="black") +
   geom_text(data=graph |> 
               filter(!Amount %in% c(0,0.1)),
-            aes(x=as.numeric(Class), y=textlocation, label=paste0(Amount,"%"),color=Category)) +
+            aes(x=as.numeric(Class), y=textlocation, label=paste0(Amount,"%"),color=Category),size=11) +
   scale_fill_manual(values=c("black","#7e6583","#ffc0cb","grey","#d2b48c")) +
   scale_color_manual(values=c("white","black","black","black","black")) +
   geom_text(data=data,
-            aes(x=as.numeric(Class), y=-25, label=Class),color="black",lineheight=.5) +
+            aes(x=as.numeric(Class), y=-25, label=Class),color="black",lineheight=.8,size=11) +
   geom_text(data=data,
-            aes(x=as.numeric(Class), y=-10, label=paste0("$",`Actual Average`)),color="black") +
+            aes(x=as.numeric(Class), y=-10, label=paste0("$",`Actual Average`)),color="black",size=11) +
   scale_y_continuous(limits=c(-35,108)) +
   theme_void() +
   guides(fill="none",
          color="none") +
   annotate("rect",ymin=-33,ymax=-2,xmin=.2,xmax=7.5,fill=NA,color="black") +
-  annotate("segment",x=.2,xend=7.5,y=-16,yend=-16,color="black") +
+  annotate("segment",x=.2,xend=7.5,y=-17,yend=-17,color="black") +
   annotate("segment",y=-33,yend=5,x=0.5,xend=0.5,arrow=arrow(type="open",length=unit(0.1,"cm")),color="black") +
   annotate("segment",y=-33,yend=5,x=1.5,xend=1.5,arrow=arrow(type="open",length=unit(0.1,"cm")),color="black") +
   annotate("segment",y=-33,yend=5,x=2.5,xend=2.5,arrow=arrow(type="open",length=unit(0.1,"cm")),color="black") +
@@ -177,12 +178,12 @@ p <- graph |>
   annotate("segment",y=-33,yend=5,x=4.5,xend=4.5,arrow=arrow(type="open",length=unit(0.1,"cm")),color="black") +
   annotate("segment",y=-33,yend=5,x=5.5,xend=5.5,arrow=arrow(type="open",length=unit(0.1,"cm")),color="black") +
   annotate("segment",y=-33,yend=5,x=6.5,xend=6.5,arrow=arrow(type="open",length=unit(0.1,"cm")),color="black") +
-  annotate("text",x=0.35,y=-25,label="CLASS") +
-  annotate("text",x=0.35,y=-10,label="ACTUAL AVERAGE") +
-  annotate("text",x=1.5,y=106,label="POOR",angle=90) +
-  annotate("text",x=3.5,y=106,label="FAIR",angle=90) +
-  annotate("text",x=5.5,y=106,label="COMFORTABLE",angle=90) +
-  annotate("text",x=7,y=106,label="WELL-TO DO",angle=90) +
+  annotate("text",x=0.35,y=-25,label="CLASS",size=6.5) +
+  annotate("text",x=0.35,y=-10,label="ACTUAL AVERAGE",size=6.5) +
+  annotate("text",x=1.5,y=106,label="POOR",angle=90,size=8) +
+  annotate("text",x=3.5,y=106,label="FAIR",angle=90,size=8) +
+  annotate("text",x=5.5,y=106,label="COMFORTABLE",angle=90,size=8) +
+  annotate("text",x=7,y=106,label="WELL-TO DO",angle=90,size=8) +
   labs(title="INCOME AND EXPENDITURE of 150 NEGRO FAMILIES IN ATLANTA,GA.,USA.") +
   stat_brace(data=bracket1,
              aes(x=x,y=y),outside=FALSE,rotate=-180) +
@@ -192,11 +193,16 @@ p <- graph |>
              aes(x=x,y=y),outside=FALSE,rotate=-180) +
   stat_brace(data=bracket4,
              aes(x=x,y=y),outside=FALSE,rotate=-180) +
-  annotate("text",y=50,x=7.5,label="FOR FURTHER STATISTICS RAISE THIS FRAME.") +
+  annotate("text",y=50,x=7.5,label="FOR FURTHER STATISTICS RAISE THIS FRAME.",size=11) +
+  annotate("segment",y=19,yend=21.5,x=.8,xend=0) +
+  annotate("segment",y=62,yend=42,x=.8,xend=0) +
+  annotate("segment",y=90,yend=62.5,x=.8,xend=0) +
+  annotate("segment",y=90.1,yend=83,x=.8,xend=0) +
   theme(text = element_text(family = "dubois", size = 20, lineheight = .5),
         panel.background = element_rect(fill = NA, color = NA),
         panel.ontop = TRUE,
-        plot.background = element_rect(fill = "#E6D4C3", color = NA))
+        plot.background = element_rect(fill = "#E6D4C3", color = NA),
+        plot.title = element_text(size = 55, hjust=.5,lineheight=.8,margin=margin(1,0,1,0,"cm")))
 
 q <- p + inset_element(shield,left=0,bottom=.7,right=.3,top=1) +
   inset_element(legendtable,left=.2,bottom=.7,right=1,top=1)

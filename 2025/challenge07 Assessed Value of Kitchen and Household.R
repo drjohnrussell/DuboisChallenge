@@ -5,8 +5,9 @@ options(scipen = 999)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
-data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge07/data.csv") |> 
+data <- read_csv("2025/data/challenge07.csv") |> 
   mutate(Year = as.factor(Year))
 
 datastart <- data |> 
@@ -87,6 +88,10 @@ p <- data3 |>
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(1, 1, 0.1, 1, "cm"))
 
-
+library(magick)
 ggsave(plot=p,filename="2025/challenge07.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge07.png",width=22, height=28, units="in",dpi=600,bg="#E6D4C3")
+image <- image_read("2025/final/challenge07.png")
+image2 <- image_resize(image,"812x1024")
+image_write(image2, path = "2025/final/challenge07.png", format = "png")
 

@@ -1,11 +1,12 @@
 library(tidyverse)
 library(showtext)
 library(ggbrace)
+library(magick)
 ?options(scipen = 999)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
-showtext_opts(dpi = 300)
+showtext_opts(dpi = 600)
 
 data <- read_csv("2025/data/challenge06.csv") |> 
   mutate(Year=case_when(Year==1898 ~ 1899,
@@ -101,4 +102,7 @@ p <- data2 |>
         plot.margin = margin(1, 1, 0.1, 1, "cm"))
 
 ggsave(plot=p,filename="2025/final/challenge06.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
-ggsave(plot=p,filename="2025/final/challenge06.png",width=11, height=14, units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge06.png",width=22, height=28, units="in",dpi=600,bg="#E6D4C3")
+image <- image_read("2025/final/challenge06.png")
+image2 <- image_resize(image,"812x1024")
+image_write(image2, path = "challenge06.png", format = "png")

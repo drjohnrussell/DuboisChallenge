@@ -30,7 +30,7 @@ p <- data |>
   annotate("curve",x=21.55,y=62820,xend=22,yend=62820,curvature=1,linewidth=12.4,color="#dc143c") +
   annotate("rect",ymin=5000,ymax=5000+length2,xmin=6.7,xmax=7,fill="#dc143c") +
   stat_brace(data=bracket1,aes(x=x,y=y),outside=FALSE,rotate=0,bending=0.3,mid=.42) +
-  annotate("text",x=11,y=30000,label="1890.",size=3,family="dubois") +
+  annotate("text",x=11,y=30000,label="1890.",size=16,family="dubois") +
   geom_text(aes(x=fct_rev(Occupation),hjust=1,y=-300,label=format(Count,big.mark=",")),size=10,family="dubois") +
   scale_y_continuous(expand=expansion(c(.08,.03))) +
   scale_x_discrete(expand=expansion(c(0.01,.06))) +
@@ -47,7 +47,7 @@ p <- data |>
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(0, 1, 0.1, 1, "cm"))
 
-ggsave(plot=p,filename="2025/challenge08.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=p,filename="2025/final/challenge08.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
 
 library(magick)
 ggsave(plot=p,filename="2025/final/challenge08.png",width=22, height=28, units="in",dpi=600,bg="#E6D4C3")

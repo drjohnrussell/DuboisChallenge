@@ -5,7 +5,7 @@ options(scipen = 999)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
-
+showtext_opts(dpi = 600)
 
 data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge09/data.csv") |> 
   mutate(Occupation=factor(Occupation, levels=c("Agriculture, Fisheries and Mining", 
@@ -63,5 +63,11 @@ p <- data2 |>
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(1, 1, 0.1, 1, "cm"))
 
-ggsave(p, filename = "2025/challenge09.pdf", width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+ggsave(p, filename = "2025/final/challenge09.pdf", width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
+
+library(magick)
+ggsave(plot=p,filename="2025/final/challenge09.png",width=22, height=28, units="in",dpi=600,bg="#E6D4C3")
+image <- image_read("2025/final/challenge09.png")
+image2 <- image_resize(image,"812x1024")
+image_write(image2, path = "2025/final/challenge09.png", format = "png")
 

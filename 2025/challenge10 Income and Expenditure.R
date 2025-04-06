@@ -6,6 +6,7 @@ library(ggbrace)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()
+showtext_opts(dpi = 600)
 
 data <- read_csv("https://github.com/ajstarks/dubois-data-portraits/raw/refs/heads/master/challenge/2025/challenge10/data.csv") |> 
   mutate(Other=case_when(Class=="$100-200" ~ 9.9,
@@ -71,7 +72,7 @@ table <- tibble(RENT= c("2025/images/rent.PNG",""),
                 FOOD= c("2025/images/food.PNG",""),
                 CLOTHES= c("2025/images/clothes.PNG",""),
                 `DIRECT TAXES`= c("2025/images/tab_1.png",""),
-                `OTHER EXPENSES AND SAVINGS`=c("THE HIGHER LIFE <br> &nbsp;  RELIGION <br> ART <br> EDUCATION <br> SICKNESS <br> SAVINGS <br> AMUSEMENTS <br> BOOKS AND PAPERS <br> TRAVEL",""))
+                `OTHER EXPENSES AND SAVINGS`=c("THE HIGHER LIFE <br> &nbsp;  RELIGION <br> &nbsp; &nbsp; ART <br> &nbsp; &nbsp; &nbsp; EDUCATION <br> &nbsp; &nbsp; &nbsp; &nbsp; SICKNESS <br> &nbsp; &nbsp; &nbsp; &nbsp; SAVINGS <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AMUSEMENTS <br> &nbsp; &nbsp; &nbsp; BOOKS AND PAPERS <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TRAVEL",""))
 
 legendtable <- table |> 
   gt() |> 
@@ -112,7 +113,7 @@ legendtable |>
   gtsave("2025/images/legendtable.png", vwidth = 2000, vheight = 1000)
 
 ### Trimming the image
-legendtable <- image_ggplot(image_trim(image_read("2025/images/legendtable.PNG")))
+legendtable <- image_ggplot(image_trim(image_read("2025/images/legendtable.png")))
 shield <- image_ggplot(image_read("2025/images/income.PNG"))
 library(patchwork)
 
@@ -208,5 +209,13 @@ q <- p + inset_element(shield,left=0,bottom=.7,right=.3,top=1) +
   inset_element(legendtable,left=.2,bottom=.7,right=1,top=1)
 
 
-ggsave(plot=q,filename="2025/challenge10.pdf",width=28,height=22,units="in",dpi=600,bg="#E6D4C3")
+ggsave(plot=q,filename="2025/final/challenge10.pdf",width=28,height=22,units="in",dpi=600,bg="#E6D4C3")
+
+
+library(magick)
+ggsave(plot=q,filename="2025/final/challenge10.png",width=28, height=22, units="in",dpi=600,bg="#E6D4C3")
+image <- image_read("2025/final/challenge10.png")
+image2 <- image_resize(image,"1024x812")
+image_write(image2, path = "2025/final/challenge10.png", format = "png")
+
 

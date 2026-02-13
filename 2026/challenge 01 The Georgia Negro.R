@@ -98,7 +98,7 @@ afr_eur <- world |>
 
 eastmap <- ggplot() +
   geom_circle(aes(x0 = 5221000, y0 =2510000, r = 8160900), colour="black", fill=background) +
-  geom_sf(data = afr_eur, aes(fill=color)) +
+  geom_sf(data = afr_eur, aes(fill=color), linewidth=NA) +
   coord_sf(crs = "+proj=laea +lat_0=40 +lon_0=45 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs ",
            xlim=c(-2339981, 12803058), ylim=c(-5095286, 9970916)) +
   scale_fill_manual(values=c("black", brown, tan)) +
@@ -111,10 +111,14 @@ eastmap <- ggplot() +
 p <- grid.arrange(westmap, eastmap, nrow = 1, ncol=2)
 p
 
+g1 <- grid::circleGrob(gp = grid::gpar(fill = "white"))
+
+
 
 library(ggview)
 final <- ggdraw(p, xlim=c(-.05,1.05)) +
   theme(plot.background = element_rect(fill=lighttan, color = lighttan)) +
+  draw_grob(g1, x=-0.25, y=-0.285, scale = 0.015) +
   draw_label("THE GEORGIA NEGRO .", x = 0.5, y = 0.92, hjust = 0.5, vjust = 0.5, 
              fontfamily = "dubois", fontface="bold", color = "black", size = 40) +
   draw_label("A SOCIAL STUDY\nBY\nW.E.BURGHARDT DU BOIS.", x = 0.5, y = 0.86, hjust = 0.5, vjust = 0.5, 

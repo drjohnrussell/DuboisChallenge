@@ -28,6 +28,8 @@ duboismap <- map |>
                          Population=="500,000 - 600,000" ~ "diagonal",
                         .default="color"))
 
+library(patchwork)
+
 final <- ggplot() +
   geom_sf_pattern(data=duboismap |> filter(type=="cross-hatch"),
                     pattern="crosshatch", fill=background, pattern_angle=0,
@@ -42,11 +44,11 @@ final <- ggplot() +
   scale_fill_manual(values=c(gold, tan, blue,pink, brown, crimson, "black", lighttan)) +
   theme_void() + theme(legend.position="none", 
                         plot.background=element_rect(fill=background, color = background)) +
-  annotate("rect", xmin=-118, xmax=-114, ymin=22, ymax=25, fill="black") +
+  annotate("rect", xmin=-118, xmax=-114, ymin=21, ymax=24, fill="black") +
   annotate(
     geom = ggpattern::GeomRectPattern,
     xmin = -118, xmax = -114,  # Adjust coordinates to your map
-    ymin = 16, ymax = 19,
+    ymin = 15, ymax = 18,
     pattern = "crosshatch",
     pattern_density = 0.1,
     pattern_spacing=0.01,
@@ -58,82 +60,85 @@ final <- ggplot() +
   annotate(
     geom = ggpattern::GeomRectPattern,
     xmin=-118, xmax=-114,
-    ymin=10, ymax=13,
+    ymin=9, ymax=12,
     pattern="stripe", fill=background,
     pattern_angle=-45, pattern_fill="black",
     pattern_density=.1, pattern_size=.1, pattern_spacing=.01, color="black") +
   annotate(
     "rect", xmin=-118, xmax=-114,
-    ymin=4, ymax=7,
+    ymin=3, ymax=6,
     fill=brown, color="black"
   ) +
   annotate(
     "rect", xmin=-118, xmax=-114,
-    ymin=-2, ymax=1, fill=blue, color="black"
+    ymin=-3, ymax=0, fill=blue, color="black"
   ) +
   annotate(
-    "rect", xmin=-93, xmax=-89,
-    ymin=22, ymax=25, fill=lighttan, color="black"
+    "rect", xmin=-92, xmax=-88,
+    ymin=21, ymax=24, fill=lighttan, color="black"
   ) +
   annotate(
-    "rect", xmin=-93, xmax=-89,
-    ymin=16, ymax=19, fill=crimson, color="black"
+    "rect", xmin=-92, xmax=-88,
+    ymin=15, ymax=18, fill=crimson, color="black"
   ) +
   annotate(
-    "rect", xmin=-93, xmax=-89,
-    ymin=10, ymax=13, fill=pink, color="black"
+    "rect", xmin=-92, xmax=-88,
+    ymin=9, ymax=12, fill=pink, color="black"
   ) +
   annotate(
-    "rect", xmin=-93, xmax=-89,
-    ymin = 4, ymax=7, fill=gold, color="black"
+    "rect", xmin=-92, xmax=-88,
+    ymin = 3, ymax=6, fill=gold, color="black"
   ) +
   annotate(
-    "rect", xmin=-93, xmax=-89,
-    ymin=-2, ymax=1, fill=tan, color="black") +
+    "rect", xmin=-92, xmax=-88,
+    ymin=-3, ymax=0, fill=tan, color="black") +
   annotate(
-    "text", y=23.5, x=-113, hjust=0, label="750,000 NEGROES AND OVER", 
+    "text", y=22.5, x=-113, hjust=0, label="750,000 NEGROES AND OVER", 
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=17.5, x=-113, hjust=0, label="600,000 - 750,000",
+    "text", y=16.5, x=-113, hjust=0, label="600,000 - 750,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=11.5, x=-113, hjust=0, label="500,000 - 600,000",
+    "text", y=10.5, x=-113, hjust=0, label="500,000 - 600,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=5.5, x=-113, hjust=0, label="300,000 - 500,000",
+    "text", y=4.5, x=-113, hjust=0, label="300,000 - 500,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=-0.5, x=-113, hjust=0, label="200,000 - 300,000",
+    "text", y=-1.5, x=-113, hjust=0, label="200,000 - 300,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=23.5, x=-88, hjust=0, label="100,000 - 200,000",
+    "text", y=22.5, x=-87, hjust=0, label="100,000 - 200,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=17.5, x=-88, hjust=0, label="50,000 - 100,000",
+    "text", y=16.5, x=-87, hjust=0, label="50,000 - 100,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=11.5, x=-88, hjust=0, label="25,000 - 50,000",
+    "text", y=10.5, x=-87, hjust=0, label="25,000 - 50,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=5.5, x=-88, hjust=0, label="10,000 - 25,000",
+    "text", y=4.5, x=-87, hjust=0, label="10,000 - 25,000",
     size=34, family="dubois"
   ) +
   annotate(
-    "text", y=-0.5, x=-88, hjust=0, label="UNDER - 10,000",
+    "text", y=-1.5, x=-87, hjust=0, label="UNDER - 10,000",
     size=34, family="dubois"
   ) +
   annotate(
     "text", y=70, x=-95, hjust=0.5, lineheight=.5, fontface=2,
     label = "RELATIVE NEGRO POPULATION OF THE STATES OF THE \n UNITED STATES .",
     size=50, family="dubois"
-  )
-
+  ) #+
+  #coord_sf(crs = 5070, default_crs = sf::st_crs(4326)) ## tried this projection which works for the map but not the rest
+  
 final + canvas(width=22, height=28, bg=background)
+
+ggsave(plot=final, filename="2026/final/challenge02.png", width=22, height=28, bg=background)

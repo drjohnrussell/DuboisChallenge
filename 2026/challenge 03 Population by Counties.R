@@ -72,4 +72,4 @@ image <- mapfinal |>
 image + canvas(width=22, height=28, bg=background)
 
 ggsave(plot=image, filename="2026/final/challenge03.png", width=22, height=28, bg=background)
-  
+

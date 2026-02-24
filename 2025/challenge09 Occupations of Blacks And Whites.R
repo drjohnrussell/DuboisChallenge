@@ -51,9 +51,9 @@ p <- data2 |>
   coord_fixed() +
   scale_fill_manual(values=c("#dc143c", "#ffd700", "#4682b4", "#d2b48c", "#654321")) +
   guides(fill="none") +
-  annotate("text", x=0, y=1.05, label="NEGROES.",alpha=.8,family="dubois",size=14) +
+  annotate("text", x=0, y=1.05, label="BLACKS.",alpha=.8,family="dubois",size=14) +
   annotate("text", x=0, y=-1.05, label="WHITES", alpha=.8,family="dubois",size=14) +
-  labs(title=str_to_upper("occupations of negroes and whites in georgia.")) +
+  labs(title=str_to_upper("occupations of blacks and whites in georgia.")) +
   theme(legend.position="none",
         text = element_text(family = "dubois", size = 20, lineheight = .5),
         panel.background = element_rect(fill = NA, color = NA),

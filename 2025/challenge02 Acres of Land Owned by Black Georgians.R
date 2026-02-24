@@ -34,7 +34,7 @@ p <- ggplot(data,mapping=aes(x=fct_rev(Date))) +
         plot.caption = element_text(size = 10), 
         plot.caption.position = "plot",
         strip.text = element_text(size = 30, hjust = 0.5)) +
-  labs(title=str_to_upper("acres of land owned by negroes \n in georgia."))
+  labs(title=str_to_upper("acres of land owned by \n black georgians."))
 
 ggsave(plot=p,filename="2025/final/challenge02.pdf",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")
 ggsave(plot=p,filename="2025/final/challenge02.png",width=22,height=28,units="in",dpi=600,bg="#E6D4C3")

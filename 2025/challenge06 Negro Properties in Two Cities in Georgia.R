@@ -91,7 +91,7 @@ p <- data2 |>
   annotate("text",x=1881.9,y=1906.5,hjust=0,label="=SAVANNAH",family="dubois",size=12) +
   annotate("rect",xmin=1897.5,xmax=1899.5,ymin=1906,ymax=1907,fill="#add8e6",color="black") +
   annotate("text",x=1897.3,y=1906.5,hjust=1,label="ATLANTA=",family="dubois",size=12)+
-  labs(title=str_to_upper("Negro Property in Two Cities\n  of Georgia.")) +
+  labs(title=str_to_upper("Black-owned Property in Two Cities\n  of Georgia.")) +
   theme(legend.position="none",
         text = element_text(family = "dubois", size = 20, lineheight = .5),
         panel.background = element_rect(fill = NA, color = NA),

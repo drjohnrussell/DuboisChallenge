@@ -185,7 +185,7 @@ p <- graph |>
   annotate("text",x=3.5,y=106,label="FAIR",angle=90,size=8) +
   annotate("text",x=5.5,y=106,label="COMFORTABLE",angle=90,size=8) +
   annotate("text",x=7,y=106,label="WELL-TO DO",angle=90,size=8) +
-  labs(title="INCOME AND EXPENDITURE of 150 NEGRO FAMILIES IN ATLANTA,GA.,USA.") +
+  labs(title="INCOME AND EXPENDITURE of 150 BLACK FAMILIES IN ATLANTA,GA.,USA.") +
   stat_brace(data=bracket1,
              aes(x=x,y=y),outside=FALSE,rotate=-180) +
   stat_brace(data=bracket2,

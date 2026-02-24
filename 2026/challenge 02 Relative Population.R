@@ -93,7 +93,7 @@ final <- ggplot() +
     "rect", xmin=-92, xmax=-88,
     ymin=-3, ymax=0, fill=tan, color="black") +
   annotate(
-    "text", y=22.5, x=-113, hjust=0, label="750,000 NEGROES AND OVER", 
+    "text", y=22.5, x=-113, hjust=0, label="750,000 BLACK PEOPLE AND OVER", 
     size=34, family="dubois"
   ) +
   annotate(
@@ -134,7 +134,7 @@ final <- ggplot() +
   ) +
   annotate(
     "text", y=70, x=-95, hjust=0.5, lineheight=.5, fontface=2,
-    label = "RELATIVE NEGRO POPULATION OF THE STATES OF THE \n UNITED STATES .",
+    label = "RELATIVE BLACK POPULATION OF THE STATES OF THE \n UNITED STATES .",
     size=50, family="dubois"
   ) #+
   #coord_sf(crs = 5070, default_crs = sf::st_crs(4326)) ## tried this projection which works for the map but not the rest

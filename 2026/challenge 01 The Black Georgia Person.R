@@ -119,7 +119,7 @@ library(ggview)
 final <- ggdraw(p, xlim=c(-.05,1.05)) +
   theme(plot.background = element_rect(fill=lighttan, color = lighttan)) +
   draw_grob(g1, x=-0.25, y=-0.285, scale = 0.015) +
-  draw_label("THE GEORGIA NEGRO .", x = 0.5, y = 0.92, hjust = 0.5, vjust = 0.5, 
+  draw_label("THE BLACK GEORGIA  PERSON.", x = 0.5, y = 0.92, hjust = 0.5, vjust = 0.5, 
              fontfamily = "dubois", fontface="bold", color = "black", size = 40) +
   draw_label("A SOCIAL STUDY\nBY\nW.E.BURGHARDT DU BOIS.", x = 0.5, y = 0.86, hjust = 0.5, vjust = 0.5, 
            fontfamily = "dubois", color = "black", size = 22, lineheight=1.5) +
@@ -129,10 +129,10 @@ final <- ggdraw(p, xlim=c(-.05,1.05)) +
              fontfamily = "dubois", color = "black", size = 22) +
   draw_label("THE STATE OF GEORGIA", x = 0.3, y = 0.22, hjust = 0, vjust = 0.5, 
              fontfamily = "dubois", color = "black", size = 22) +
-  draw_label("THIS CASE IS DEVOTED TO A SERIES OF CHARTS., MAPS AND OTHER DEVI-\nCES DESIGNED TO ILLUSTRATE THE DEVELOPMENT OF THE AMERICAN NEGRO IN A\nSINGLE TYPICAL STATE OF THE UNITED STATES.\n\nTHE PROBLEM OF THE 20TH CENTURY IS THE PROBLEM OF THE\nCOLOR LINE.", 
+  draw_label("THIS CASE IS DEVOTED TO A SERIES OF CHARTS., MAPS AND OTHER DEVI-\nCES DESIGNED TO ILLUSTRATE THE DEVELOPMENT OF AFRICAN AMERICANS IN A\nSINGLE TYPICAL STATE OF THE UNITED STATES.\n\nTHE PROBLEM OF THE 20TH CENTURY IS THE PROBLEM OF THE\nCOLOR LINE.", 
              x = 0.5, y = 0.1, hjust = 0.5, vjust = 0.5, fontfamily = "dubois", color = "black", alpha=.7, size = 20, lineheight=1.5) +
   draw_label("DISTRIBUTION OF", x=0.425, y=0.63, angle=-45, fontfamily="dubois", color="black", size=16)+
-  draw_label("THE NEGRO RACE", x=0.575, y=0.63, angle=45, color="black", fontfamily="dubois", size=16) +
+  draw_label("THE BLACK RACE", x=0.575, y=0.63, angle=45, color="black", fontfamily="dubois", size=16) +
   draw_line(x=c(0.39, 0.62), y=c(0.43, 0.38), color="black", size=0.5) +
   draw_line(x=c(0.26, 0.62), y=c(0.53, 0.45), color="black", size=0.5) +
   draw_line(x=c(0.27, 0.62), y=c(0.51, 0.45), color="black", size=0.5) +

@@ -20,7 +20,7 @@ p <- ggplot(data, mapping=aes(img=image2)) +
   scale_y_continuous(limits=c(0,200)) +
   scale_x_continuous(limits=c(-100,100)) +
   theme_void() +
-  labs(title=str_to_upper("value of land owned by georgia negroes")) +
+  labs(title=str_to_upper("value of land owned by black georgians")) +
   theme(text = element_text(family = "dubois", size = 20, lineheight = .5),
         panel.background = element_rect(fill = NA, color = NA),
         panel.ontop = TRUE,

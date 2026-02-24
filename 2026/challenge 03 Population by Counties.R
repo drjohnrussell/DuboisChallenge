@@ -57,7 +57,7 @@ image <- mapfinal |>
   annotate("point", x=-82, y=29.1, size=38, shape=21, fill=pink, color="black") +
   annotate("point", x=-82, y=28.4, size=38, shape=21, fill=gold, color="black") +
   annotate("point", x=-82, y=27.7, size=38, shape=21, fill=green, color="black") +
-  annotate("text", x=-85.5, y=29.8, size=35, hjust=0, family="dubois", label="OVER 30,000 NEGROES") +
+  annotate("text", x=-85.5, y=29.8, size=35, hjust=0, family="dubois", label="OVER 30,000 BLACK PEOPLE") +
   annotate("text", x=-85.5, y=29.1, size=35, hjust=0, family="dubois", label="BETWEEN 20,000 AND 30,000") +
   annotate("text", x=-85.5, y=28.4, size=35, hjust=0, family="dubois", label="15,000 TO 20,000") +
   annotate("text", x=-85.5, y=27.7, size=35, hjust=0, family="dubois", label="10,000 TO 15,000") +
@@ -65,8 +65,8 @@ image <- mapfinal |>
   annotate("text", x=-81.5, y=29.1, size=35, hjust=0, family="dubois", label="2,500 TO 5,000") +
   annotate("text", x=-81.5, y=28.4, size=35, hjust=0, family="dubois", label="1,000 TO 2,500") +
   annotate("text", x=-81.5, y=27.7, size=35, hjust=0, family="dubois", label="UNDER 1,000") +
-  annotate("text", x=-83, y=37.5, size=50, family="dubois", fontface=2, lineheight=.5, 
-            label="NEGRO POPULATION OF GEORGIA BY COUNTIES \n 1890.")
+  annotate("text", x=-83.5, y=37.5, size=50, family="dubois", fontface=2, lineheight=.5, hjust=.5, 
+            label="BLACK POPULATION OF GEORGIA BY COUNTIES \n 1890.")
 
 
 image + canvas(width=22, height=28, bg=background)

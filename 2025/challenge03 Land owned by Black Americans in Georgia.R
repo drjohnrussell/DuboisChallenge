@@ -67,7 +67,7 @@ p <- map |>
         plot.title.position = "plot",
         plot.background = element_rect(fill = "#E6D4C3", color = NA),
         plot.margin = margin(0.2, 1, 0.1, 1, "cm")) +
-  labs(title=str_to_upper("land owned by negroes in georgia, u.s.a  1870-1900."))
+  labs(title=str_to_upper("land owned by black americans in georgia, u.s.a  1870-1900."))
 
 p
 

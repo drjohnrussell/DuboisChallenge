@@ -37,7 +37,7 @@ p <- data |>
   coord_flip() +
   theme_void() +
   annotate("text",x=23,y=30000,label="MALES OVER 10",size=11) +
-  labs(title=str_to_upper("Occupations of Georgia Negroes.")) +
+  labs(title=str_to_upper("Occupations of Black Georgians.")) +
   theme(text = element_text(family = "dubois", size = 20, lineheight = .5),
         axis.text.y=element_text(size=24,family="dubois",hjust=0,lineheight = 1),
         panel.background = element_rect(fill = NA, color = NA),

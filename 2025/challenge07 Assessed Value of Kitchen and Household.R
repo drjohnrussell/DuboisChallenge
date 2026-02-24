@@ -76,7 +76,7 @@ p <- data3 |>
   annotate("text",x=-.05,y=3.5,label='1895 ---" 1,322,694',hjust=1,family="dubois",size=10) +
   annotate("text",x=-.05,y=3.4,label='1900 ---" 1,434,975',hjust=1,family="dubois",size=10) +
   theme_void() +
-  labs(title=str_to_upper("assessed value of household and kitchen furniture\n owned by georgia negroes.")) +
+  labs(title=str_to_upper("assessed value of household and kitchen furniture\n owned by black georgians")) +
   coord_fixed() +
   scale_color_manual(values=c("#ffc0cb","#4682b4","#654321","#ffd700","#d2b48c","#dc143c"))+
   theme(legend.position="none",

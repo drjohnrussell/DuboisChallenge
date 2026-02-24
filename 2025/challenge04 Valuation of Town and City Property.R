@@ -43,7 +43,7 @@ p <- data_spline |>
   annotate("text",x=1881.5,y=4050000,label="RISE OF \n    THE NEW \n       INDUSTRIALISM",lineheight=.8,size=11,hjust=0) +
   geom_line(color="black",size=3.5) +
   geom_line(aes(group=1),size=3,show.legend=FALSE) +
-  labs(title=str_to_upper("valuation of town and city property owned \n by georgia negroes.")) +
+  labs(title=str_to_upper("valuation of town and city property owned \n by black georgians")) +
   scale_color_manual(values=c("white", "black")) +
   scale_x_continuous(breaks = seq(1870, 1900, by = 5),
                      limits=c(1860,1900),

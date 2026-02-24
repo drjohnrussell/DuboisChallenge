@@ -78,7 +78,7 @@ p <- ggplot() +
   annotate("text",x=10,y=0,label="$12,322,003",colour="black",family="dubois",angle=0,size=8.5) +
   annotate("text",x=8,y=10,label="$12,941,230",colour="black",family="dubois",angle=52,size=8.5) +
   annotate("text",x=-8,y=10,label="$13,447,423",colour="black",family="dubois",angle=-55,size=8.5) +
-  labs(title = "ASSESSED VALUATION OF ALL TAXABLE PROPERTY\nOWNED BY GEORGIA NEGROES. ") +
+  labs(title = "ASSESSED VALUATION OF ALL TAXABLE PROPERTY\nOWNED BY BLACK GEORGIANS ") +
   theme(plot.background = element_rect(fill = "#E6D4C3", colour="#E6D4C3"),
         panel.background = element_rect(fill = "#E6D4C3", colour="#E6D4C3"), 
         panel.grid.major = element_blank(), 

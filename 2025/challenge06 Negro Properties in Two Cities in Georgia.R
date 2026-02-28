@@ -2,7 +2,7 @@ library(tidyverse)
 library(showtext)
 library(ggbrace)
 library(magick)
-?options(scipen = 999)
+options(scipen = 999)
 
 font_add_google("Play", family = "dubois")
 showtext_auto()

@@ -75,3 +75,5 @@ final <- p + plot_annotation(
 )
 
 final + canvas(width=22, height=28, units="in", bg=background)
+
+ggsave(plot=final, filename="2026/final/challenge04.png", width=22, height=28, units="in", bg=background)

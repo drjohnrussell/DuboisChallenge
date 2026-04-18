@@ -73,7 +73,7 @@ final <- ggdraw(xlim = c(0, 1), ylim = c(0, 1)) +
 
   ## Title
   draw_label(
-    "DISTRIBUTION OF NEGROES IN THE UNITED STATES.",
+    "DISTRIBUTION OF BLACK AMERICANS IN THE UNITED STATES.",
     x = 0.5, y = 0.978, hjust = 0.5, vjust = 1,
     fontfamily = "dubois", fontface = "bold", size = 32, color = "black"
   ) +
@@ -85,32 +85,30 @@ final <- ggdraw(xlim = c(0, 1), ylim = c(0, 1)) +
   ) +
 
   ## Legend circles
-  draw_label("\u25CF", x = legend_x[1], y = 0.914, color = gold,    size = 65) +
-  draw_label("\u25CF", x = legend_x[2], y = 0.914, color = blue,    size = 65) +
-  draw_label("\u25CF", x = legend_x[3], y = 0.914, color = crimson, size = 65) +
-  draw_label("\u25CF", x = legend_x[4], y = 0.914, color = brown,   size = 65) +
-  draw_label("\u25CF", x = legend_x[5], y = 0.914, color = "black", size = 65) +
-
+  draw_label("\u25CF", x = legend_x[1], y = 0.814, color = gold,    size = 100) +
+  draw_label("\u25CF", x = legend_x[2], y = 0.814, color = blue,    size = 100) +
+  draw_label("\u25CF", x = legend_x[3], y = 0.814, color = crimson, size = 100) +
+  draw_label("\u25CF", x = legend_x[4], y = 0.814, color = brown,   size = 100) +
+  draw_label("\u25CF", x = legend_x[5], y = 0.814, color = "black", size = 100) +
   ## Legend labels
-  draw_label("LESS THAN\n1", x = legend_x[1], y = 0.889, hjust = 0.5, vjust = 1,
-             fontfamily = "dubois", size = 16, lineheight = 1.0, color = "black") +
-  draw_label("1-4",   x = legend_x[2], y = 0.889, hjust = 0.5, vjust = 1,
-             fontfamily = "dubois", size = 16, color = "black") +
-  draw_label("4-8",   x = legend_x[3], y = 0.889, hjust = 0.5, vjust = 1,
-             fontfamily = "dubois", size = 16, color = "black") +
-  draw_label("8-15",  x = legend_x[4], y = 0.889, hjust = 0.5, vjust = 1,
-             fontfamily = "dubois", size = 16, color = "black") +
-  draw_label("15-25", x = legend_x[5], y = 0.889, hjust = 0.5, vjust = 1,
-             fontfamily = "dubois", size = 16, color = "black") +
-
+  draw_label("LESS THAN\n1", x = legend_x[1], y = 0.789, hjust = 0.5, vjust = 1,
+             fontfamily = "dubois", size = 20, lineheight = 1.0, color = "black") +
+  draw_label("1-4",   x = legend_x[2], y = 0.789, hjust = 0.5, vjust = 1,
+             fontfamily = "dubois", size = 20, color = "black") +
+  draw_label("4-8",   x = legend_x[3], y = 0.789, hjust = 0.5, vjust = 1,
+             fontfamily = "dubois", size = 20, color = "black") +
+  draw_label("8-15",  x = legend_x[4], y = 0.789, hjust = 0.5, vjust = 1,
+             fontfamily = "dubois", size = 20, color = "black") +
+  draw_label("15-25", x = legend_x[5], y = 0.789, hjust = 0.5, vjust = 1,
+             fontfamily = "dubois", size = 20, color = "black") +
   ## Brace below legend labels
-  draw_plot(brace_plot, x = 0.10, y = 0.860, width = 0.80, height = 0.018) +
+  draw_plot(brace_plot, x = 0.10, y = 0.760, width = 0.80, height = 0.018) +
 
   ## Unit label below brace
   draw_label(
-    "NEGROES TO THE SQUARE MILE.",
-    x = 0.5, y = 0.855, hjust = 0.5, vjust = 1,
-    fontfamily = "dubois", size = 18, color = "black"
+    "BLACK AMERICANS TO THE SQUARE MILE.",
+    x = 0.5, y = 0.75, hjust = 0.5, vjust = 1,
+    fontfamily = "dubois", size = 25, color = "black"
   ) +
 
   ## Choropleth map
